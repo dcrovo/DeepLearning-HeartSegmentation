@@ -160,3 +160,5 @@ cython_debug/
 #.idea/
 data/ 
 2d_data/
+src/tests.ipynb
+/saved_images
