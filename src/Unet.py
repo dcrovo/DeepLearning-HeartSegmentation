@@ -79,12 +79,12 @@ class UNET(nn.Module):
             
         return self.final_conv(X)       
     
-def val_size(): 
-    X = torch.randn((3, 1, 255, 255))
-    model = UNET(in_channels = 1, out_channels = 1)
-    preds = model(X)
-    print('\nInput size: {}'.format(X.shape))
-    print('Output size: {}'.format(preds.shape))
+# def val_size(): 
+#     X = torch.randn((3, 1, 255, 255))
+#     model = UNET(in_channels = 1, out_channels = 1)
+#     preds = model(X)
+#     print('\nInput size: {}'.format(X.shape))
+#     print('Output size: {}'.format(preds.shape))
     
-if __name__ == '__main__': 
-    val_size()
+# if __name__ == '__main__': 
+#     val_size()
