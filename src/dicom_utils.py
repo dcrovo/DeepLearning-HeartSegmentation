@@ -7,7 +7,7 @@ def transform_to_hu(medical_image):
 
     return hu_image
 
-def apply_windowing(ds, window_center, window_width, normalized=False):
+def apply_windowing(ds, window_center, window_width, normalized=False, zero_centered=True):
     
     # Get the pixel data and rescale to Hounsfield units (HU)
     pixel_array = ds.pixel_array.astype(np.float32)
@@ -19,6 +19,8 @@ def apply_windowing(ds, window_center, window_width, normalized=False):
     window_min = window_center - (window_width / 2)
     window_max = window_center + (window_width / 2)
     windowed_array = np.clip(hu_array, window_min, window_max)
+    if(zero_centered):
+        windowed_array = zero_center(windowed_array)
     if(normalized):
     # Normalize the windowed array to [0, 1]
         normalized_array = (windowed_array - window_min) / (window_max - window_min)
