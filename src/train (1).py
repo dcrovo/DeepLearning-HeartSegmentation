@@ -25,22 +25,7 @@ from utils import ( # .py previamente desarrollado
                        diceCoef
                       )
 #from loss_fn import dice_coefficient_loss, dice_coefficient
-import segmentation_models_pytorch as smp
-from segmentation_models_pytorch.encoders import get_preprocessing_fn
-import matplotlib.pyplot as plt
-from Unet import UNET
-# Hiperparámetros preliminares: 
-LEARNING_RATE = 0.8e-5
-DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
-BATCH_SIZE = 16 
-NUM_EPOCHS = 100
-NUM_WORKERS = multiprocessing.cpu_count()
-IMAGE_HEIGHT = 224 # 1280 px.
-IMAGE_WIDTH = 224 # 1918 px.
-PIN_MEMORY = True # almacena en la memoria fija del sistema una copia de los datos cargados en la memoria temporal de Python
-LOAD_MODEL = False
-CHECKPOINT_PATH = '/home/danielcrovo/Documents/01.Study/01.MSc/02.MSc AI/Deep Learning/Heart_Segmentation/checkpoints/UNETpp_my_checkpoint.pth.tar'
-TRAIN_IMG_DIR = '/home/danielcrovo/Documents/01.Study/01.MSc/02.MSc AI/Deep Learning/Heart_Segmentation/2d_data/images'
+import segmentation_models_pytorch as o01.Study/01.MSc/02.MSc AI/Deep Learning/Heart_Segmentation/2d_data/images'
 TRAIN_MAKS_DIR = '/home/danielcrovo/Documents/01.Study/01.MSc/02.MSc AI/Deep Learning/Heart_Segmentation/2d_data/masks'
 VAL_IMG_DIR = '/home/danielcrovo/Documents/01.Study/01.MSc/02.MSc AI/Deep Learning/Heart_Segmentation/2d_data/val_images'
 VAL_MASK_DIR = '/home/danielcrovo/Documents/01.Study/01.MSc/02.MSc AI/Deep Learning/Heart_Segmentation/2d_data/val_masks'
@@ -166,15 +151,7 @@ def main():
     dice_score =[]
     jaccard_score = []
     # Entrenamiento: 
-    for epoch in tqdm(range(NUM_EPOCHS)): 
-        epoch_loss, dice_train, jaccard_train = train_func(train_loader, model, optimizer, loss_fn, scaler)
-        train_loss.append(epoch_loss)
-        train_dice.append(dice_train.detach().cpu().numpy())
-        train_jaccard.append(jaccard_train)
-        
-        # Creación de checkpoint: 
-        checkpoint = {
-                      'state_dict': model.state_dict(), # estado de los parámetros 
+    for epoch in tqdm(range(NUM_EPOCHSodel.state_dict(), # estado de los parámetros 
                       'optimizer': optimizer.state_dict(), # estado de los gradientes            
                      }
         save_checkpoint(checkpoint, CHECKPOINT_PATH)
@@ -211,7 +188,7 @@ def main():
     axes[2].set_title('Jaccard Index in train set')
     axes[2].set_xlabel('Epochs')
     axes[2].set_ylabel('Jaccard Index')
-    plt.savefig('/home/danielcrovo/Documents/01.Study/01.MSc/02.MSc AI/Deep Learning/Heart_Segmentation/plots/Training_UNETpp.png')
+    plt.savefig('/home/danielcroovo/Documents/01.Study/01.MSc/02.MSc AI/Deep Learning/Heart_Segmentation/plots/Training_UNETpp.png')
     #plt.show()
 
 

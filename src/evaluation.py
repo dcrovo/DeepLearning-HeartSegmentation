@@ -16,7 +16,7 @@ import torch.optim as optim # para optimización de parámetros
 import segmentation_models_pytorch as smp
 
 
-CHECKPOINT_PATH = '/home/danielcrovo/Documents/01.Study/01.MSc/02.MSc AI/Deep Learning/Heart_Segmentation/checkpoints/Unetpp_my_checkpoint.pth.tar'
+CHECKPOINT_PATH = '/home/danielcrovo/Documents/01.Study/01.MSc/02.MSc AI/Deep Learning/Heart_Segmentation/checkpoints/MANET_my_checkpoint.pth.tar'
 TEST_IMAGES = '/home/danielcrovo/Documents/01.Study/01.MSc/02.MSc AI/Deep Learning/Heart_Segmentation/2d_data/test_images'
 TEST_MASK = '/home/danielcrovo/Documents/01.Study/01.MSc/02.MSc AI/Deep Learning/Heart_Segmentation/2d_data/test_masks'
 TRAIN_IMG_DIR = '/home/danielcrovo/Documents/01.Study/01.MSc/02.MSc AI/Deep Learning/Heart_Segmentation/2d_data/images'
@@ -88,9 +88,9 @@ def main():
                                            normalize=False, 
                                            
                                           )
-    model = smp.UnetPlusPlus(   
-                encoder_name="timm-efficientnet-b6",        # choose encoder, e.g. mobilenet_v2 or efficientnet-b7
-                encoder_weights="advprop",     # use `imagenet` pre-trained weights for encoder initialization
+    model = smp.MAnet(   
+                encoder_name="mit_b3",        # choose encoder, e.g. mobilenet_v2 or efficientnet-b7
+                encoder_weights="imagenet",     # use `imagenet` pre-trained weights for encoder initialization
                 in_channels=3,                  # model input channels (1 for gray-scale images, 3 for RGB, etc.)
                 classes=1,
                 decoder_use_batchnorm=True,
