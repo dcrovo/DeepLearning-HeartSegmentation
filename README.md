@@ -17,7 +17,7 @@ The Multi-scale Attention Net (MA-Net) architecture was implemented to improve h
 
 ## Results
 This is a sample CT scan segmented by the MANET model in red and by a certified board radiologist in green.
-
+![MANET Segmentation]([Image URL](https://github.com/dcrovo/DeepLearning-HeartSegmentation/blob/main/imgs/final.png))
 In summary, the MA-Net model demonstrated superior performance in heart segmentation compared to U-Net++. It achieved a Dice coefficient of 0.883, which compares favorably with state-of-the-art models. However, both models exhibited some overfitting, likely due to the limited size of the training dataset.
 
 ## Future Work
