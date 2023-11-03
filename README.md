@@ -14,11 +14,20 @@ We employed the U-Net++ architecture as a base model for heart segmentation. The
 ### MA-Net
 
 The Multi-scale Attention Net (MA-Net) architecture was implemented to improve heart segmentation. After 100 epochs, this model outperformed U-Net++ with an average Dice coefficient of 0.85 and a Jaccard index of 0.82 on the validation set. Further training for 200 epochs reduced oscillations in the training and validation metrics.
+<p align='center'>
+<img src='https://github.com/dcrovo/DeepLearning-HeartSegmentation/blob/main/imgs/MANET_TRAIN.png' />  
+<img src='https://github.com/dcrovo/DeepLearning-HeartSegmentation/blob/main/imgs/MANET_DICE_VAL.png' />  
+
+</p>
 
 ## Results
 This is a sample CT scan segmented by the MANET model in red and by a certified board radiologist in green.
-![MANET Segmentation]([Image URL](https://github.com/dcrovo/DeepLearning-HeartSegmentation/blob/main/imgs/final.png))
-In summary, the MA-Net model demonstrated superior performance in heart segmentation compared to U-Net++. It achieved a Dice coefficient of 0.883, which compares favorably with state-of-the-art models. However, both models exhibited some overfitting, likely due to the limited size of the training dataset.
+<p align='center'>
+<img src='https://github.com/dcrovo/DeepLearning-HeartSegmentation/blob/main/imgs/final.png' width=496 height=515/>  
+</p>
+
+
+In summary, the MA-Net model demonstrated superior performance in heart segmentation compared to U-Net++. It achieved a Dice coefficient of 0.883, which compares favourably with state-of-the-art models. However, both models exhibited some overfitting, likely due to the limited size of the training dataset.
 
 ## Future Work
 
